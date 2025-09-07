@@ -1,0 +1,228 @@
+[
+    {
+        "text": "Structure",
+        "children": [
+            {
+                "text": "Topics",
+                "children": [
+                    "Relevant",
+                    "Irrelevant",
+                    "Obsolete"
+                ]
+            },
+            {
+                "text": "Organization",
+                "children": []
+            },
+            {
+                "text": "Order of Topics",
+                "children": []
+            },
+            {
+                "text": "Difficulty",
+                "children": []
+            },
+            {
+                "text": "Workload",
+                "children": ["Deadlines"]
+            },
+            {
+                "text": "Attendance",
+                "children": []
+            }
+        ]
+    },
+    {
+        "text": "Evaluation",
+        "children": [
+            {
+                "text": "Grading Criteria",
+                "children": [
+                    "Assignment",
+                    "Quiz",
+                    "Midsem-Endsem",
+                    "Project",
+                    "Presentation",
+                    "Labs-Tutorial-Worksheet",
+                    "Attendance"
+                ]
+            },
+            {
+                "text": "Correctness in Evaluation",
+                "children": [
+                    "Fairness",
+                    "Biasness",
+                    "Transparency"
+                ]
+            },
+            {
+                "text": "Solutions",
+                "children": [
+                    "Timings of Upload",
+                    "Correctness",
+                    "Explanation"
+                ]
+            },
+            {
+                "text": "Quality of Questions",
+                "children": [
+                    "Correctness & Soundness",
+                    "Difficulty",
+                    "Relevance with Lecture"
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Course Material",
+        "children": [
+            {
+                "text": "Lecture Slides",
+                "children": [
+                    {
+                        "text": "Quality",
+                        "children": [
+                            "Correctness",
+                            "Understandability",
+                            "Clarity",
+                            "Organization",
+                            "Presentation"
+                        ]
+                    },
+                    {
+                        "text": "Timings of Upload",
+                        "children": []
+                    },
+                    {
+                        "text": "Relevance",
+                        "children": [
+                            "Coverage of Topics",
+                            "Relation with Lecture"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Labs-Tutorial-Assignment Questions",
+                "children": [
+                    {
+                        "text": "Relevance",
+                        "children": []
+                    },
+                    {
+                        "text": "Quality",
+                        "children": [
+                            "Pace",
+                            "Difficulty"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Extra Material",
+                "children": [
+                    "Reference Material",
+                    "Practice Sets",
+                    "Previous Year Question Papers"
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Lecture Delivery",
+        "children": [
+            {
+                "text": "Teaching Assistants (TAs)",
+                "children": [
+                    {
+                        "text": "Punctuality",
+                        "children": []
+                    },
+                    {
+                        "text": "Pedagogical Skills",
+                        "children": [
+                            "Effectiveness",
+                            {
+                                "text": "Granularity of Teaching",
+                                "children": ["High", "Medium", "Fine"]
+                            },
+                            "Subject Knowledge",
+                            {
+                                "text": "Personal Skills",
+                                "children": ["Traits", "Voice", "Language"]
+                            },
+                            {
+                                "text": "Interactiveness",
+                                "children": ["Approachability", "Peer Engagement"]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Professor",
+                "children": [
+                    {
+                        "text": "Punctuality",
+                        "children": []
+                    },
+                    {
+                        "text": "Pace",
+                        "children": []
+                    },
+                    {
+                        "text": "Topics Covered",
+                        "children": ["Proofs", "Theory", "Numericals", "Practical Demo"]
+                    },
+                    {
+                        "text": "Pedagogical Skills",
+                        "children": [
+                            "Effectiveness",
+                            {
+                                "text": "Granularity of Teaching",
+                                "children": ["High", "Medium", "Fine"]
+                            },
+                            "Subject Knowledge",
+                            {
+                                "text": "Personal Skills",
+                                "children": ["Traits", "Voice", "Language"]
+                            },
+                            {
+                                "text": "Interactiveness",
+                                "children": ["Approachability", "Peer Engagement"]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "General",
+        "children": [
+            {
+                "text": "Suggestions",
+                "children": [
+                    {
+                        "text": "Course Material",
+                        "children": []
+                    },
+                    {
+                        "text": "Evaluation",
+                        "children": []
+                    },
+                    {
+                        "text": "Lecture",
+                        "children": []
+                    },
+                    {
+                        "text": "Structure",
+                        "children": []
+                    }
+                ]
+            },
+            "Everything",
+            "Nothing"
+        ]
+    }
+]

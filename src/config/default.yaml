@@ -1,0 +1,7 @@
+llm:
+  backend: openai
+  model: gpt-4o-mini
+  temperature: 0.2
+paths:
+  data_dir: /home/abdullahm/jaleel/Review_analysis/data
+  category_tree: /home/abdullahm/jaleel/Review_analysis/data/category_tree.json

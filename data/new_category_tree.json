@@ -1,0 +1,152 @@
+[
+  {
+    "text": "Structure",
+    "children": [
+      "Topics",
+      "Organization",
+      "Order of Topics",
+      "Difficulty",
+      {
+        "text": "Workload",
+        "children": [
+          "Deadlines"
+        ]
+      },
+      "Attendance"
+    ]
+  },
+  {
+    "text": "Evaluation",
+    "children": [
+      {
+        "text": "Grading Criteria",
+        "children": [
+          "Midsem-Endsem",
+          "Project"
+        ]
+      },
+      {
+        "text": "Correctness in Evaluation",
+        "children": [
+          "Fairness",
+          "Biasness"
+        ]
+      },
+      {
+        "text": "Quality of Questions",
+        "children": [
+          "Difficulty",
+          "Relevance with Lecture"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Course Material",
+    "children": [
+      {
+        "text": "Lecture Slides",
+        "children": [
+          "Quality",
+          {
+            "text": "Relevance",
+            "children": [
+              "Coverage of Topics"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Labs-Tutorial-Assignment Questions",
+        "children": [
+          "Relevance",
+          {
+            "text": "Quality",
+            "children": [
+              "Difficulty"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Extra Material",
+        "children": [
+          "Reference Material"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Lecture Delivery",
+    "children": [
+      {
+        "text": "Teaching Assistants (TAs)",
+        "children": [
+          "Punctuality",
+          {
+            "text": "Pedagogical Skills",
+            "children": [
+              "Effectiveness",
+              "Subject Knowledge",
+              {
+                "text": "Interactiveness",
+                "children": [
+                  "Approachability"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Professor",
+        "children": [
+          "Punctuality",
+          "Pace",
+          "Topics Covered",
+          {
+            "text": "Pedagogical Skills",
+            "children": [
+              "Effectiveness",
+              {
+                "text": "Granularity of Teaching",
+                "children": [
+                  "Fine"
+                ]
+              },
+              "Subject Knowledge",
+              {
+                "text": "Personal Skills",
+                "children": [
+                  "Voice"
+                ]
+              },
+              {
+                "text": "Interactiveness",
+                "children": [
+                  "Approachability"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "General",
+    "children": [
+      {
+        "text": "Suggestions",
+        "children": [
+          "Course Material",
+          "Evaluation",
+          "Lecture",
+          "Structure"
+        ]
+      },
+      "Everything",
+      "Nothing"
+    ]
+  }
+]
