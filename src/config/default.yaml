@@ -4,4 +4,6 @@ llm:
   temperature: 0.2
 paths:
   data_dir: /home/abdullahm/jaleel/Review_analysis/data
-  category_tree: /home/abdullahm/jaleel/Review_analysis/data/category_tree.json
+  category_tree: /home/abdullahm/jaleel/Review_analysis/data/processed/2new_category_tree.json
+  train_json: /home/abdullahm/jaleel/Review_analysis/data/processed/train_null_appended.json
+  test_json: /home/abdullahm/jaleel/Review_analysis/data/processed/test_null_appended.json

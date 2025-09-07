@@ -1,0 +1,179 @@
+{
+  "text": "root",
+  "children": [
+    {
+      "text": "Structure",
+      "children": [
+        "Topics",
+        "Organization",
+        "Order of Topics",
+        "Difficulty",
+        {
+          "text": "Workload",
+          "children": [
+            "Deadlines",
+            "null"
+          ]
+        },
+        "Attendance",
+        "null"
+      ]
+    },
+    {
+      "text": "Evaluation",
+      "children": [
+        {
+          "text": "Grading Criteria",
+          "children": [
+            "Midsem-Endsem",
+            "Project",
+            "null"
+          ]
+        },
+        {
+          "text": "Correctness in Evaluation",
+          "children": [
+            "Fairness",
+            "Biasness",
+            "null"
+          ]
+        },
+        {
+          "text": "Quality of Questions",
+          "children": [
+            "Difficulty",
+            "Relevance with Lecture",
+            "null"
+          ]
+        },
+        "null"
+      ]
+    },
+    {
+      "text": "Course Material",
+      "children": [
+        {
+          "text": "Lecture Slides",
+          "children": [
+            "Quality",
+            {
+              "text": "Relevance",
+              "children": [
+                "Coverage of Topics",
+                "null"
+              ]
+            },
+            "null"
+          ]
+        },
+        {
+          "text": "Labs-Tutorial-Assignment Questions",
+          "children": [
+            "Relevance",
+            {
+              "text": "Quality",
+              "children": [
+                "Difficulty",
+                "null"
+              ]
+            },
+            "null"
+          ]
+        },
+        {
+          "text": "Extra Material",
+          "children": [
+            "Reference Material",
+            "null"
+          ]
+        },
+        "null"
+      ]
+    },
+    {
+      "text": "Lecture Delivery",
+      "children": [
+        {
+          "text": "Teaching Assistants (TAs)",
+          "children": [
+            "Punctuality",
+            {
+              "text": "Pedagogical Skills",
+              "children": [
+                "Effectiveness",
+                "Subject Knowledge",
+                {
+                  "text": "Interactiveness",
+                  "children": [
+                    "Approachability",
+                    "null"
+                  ]
+                },
+                "null"
+              ]
+            },
+            "null"
+          ]
+        },
+        {
+          "text": "Professor",
+          "children": [
+            "Punctuality",
+            "Pace",
+            "Topics Covered",
+            {
+              "text": "Pedagogical Skills",
+              "children": [
+                "Effectiveness",
+                {
+                  "text": "Granularity of Teaching",
+                  "children": [
+                    "Fine",
+                    "null"
+                  ]
+                },
+                "Subject Knowledge",
+                {
+                  "text": "Personal Skills",
+                  "children": [
+                    "Voice",
+                    "null"
+                  ]
+                },
+                {
+                  "text": "Interactiveness",
+                  "children": [
+                    "Approachability",
+                    "null"
+                  ]
+                },
+                "null"
+              ]
+            },
+            "null"
+          ]
+        },
+        "null"
+      ]
+    },
+    {
+      "text": "General",
+      "children": [
+        {
+          "text": "Suggestions",
+          "children": [
+            "Course Material",
+            "Evaluation",
+            "Lecture",
+            "Structure",
+            "null"
+          ]
+        },
+        "Everything",
+        "Nothing",
+        "null"
+      ]
+    },
+    "null"
+  ]
+}
