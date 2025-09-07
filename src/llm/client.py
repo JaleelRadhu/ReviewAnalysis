@@ -81,7 +81,45 @@ class OpenAIClient:
         )
         return response["choices"][0]["message"]["content"].strip()
     
-    
+# ---------------- Hugging Face client ---------------- #
+
+class HFClient:
+    """
+    Hugging Face client using transformers pipeline.
+    Supports causal language models (text-generation).
+    """
+
+    def __init__(self, model_name: str = "gpt2", device: int = -1):
+        try:
+            from transformers import pipeline
+        except ImportError:
+            raise ImportError("You must `pip install transformers` to use HFClient.")
+
+        # Create text-generation pipeline
+        self.generator = pipeline(
+            "text-generation",
+            model=model_name,
+            device=device,  # -1 = CPU, 0 = first GPU
+        )
+
+    def generate(
+        self,
+        prompt: str,
+        temperature: float = 0.2,
+        max_tokens: int = 128,
+    ) -> str:
+        outputs = self.generator(
+            prompt,
+            max_length=len(prompt.split()) + max_tokens,
+            temperature=temperature,
+            num_return_sequences=1,
+            do_sample=True if temperature > 0 else False,
+        )
+        return outputs[0]["generated_text"][len(prompt):].strip()
+
+
+
+
 if __name__ == "__main__":
     # Simple test of the FakeClient
     client = FakeClient(fixed_response="Test response")
