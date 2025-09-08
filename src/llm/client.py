@@ -1,15 +1,21 @@
 """
 Client adapters for different LLM backends.
-This allows us to swap OpenAI, HuggingFace, or Fake LLMs
-without changing the rest of the codebase.
+Supports OpenAI, Hugging Face (including LLaMA), and Fake LLMs.
+Loads API keys from .env automatically.
 """
 
 from typing import Protocol, Optional
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 
+# ---------------- Protocol ---------------- #
 class LLMClient(Protocol):
     """
-    A minimal protocol all LLM clients must implement.
+    Minimal protocol all LLM clients must implement.
     """
 
     def generate(
@@ -18,40 +24,23 @@ class LLMClient(Protocol):
         temperature: float = 0.2,
         max_tokens: int = 128,
     ) -> str:
-        """
-        Generate text from a given prompt.
-        Must return a string (model response).
-        """
         ...
 
 
-# ---------------- Fake client (for testing) ---------------- #
-
+# ---------------- Fake client ---------------- #
 class FakeClient:
-    """
-    A dummy client useful for unit tests.
-    Always returns a fixed label index (e.g., "1").
-    """
+    """A dummy client useful for testing."""
 
     def __init__(self, fixed_response: str = "1"):
         self.fixed_response = fixed_response
 
-    def generate(
-        self,
-        prompt: str,
-        temperature: float = 0.2,
-        max_tokens: int = 128,
-    ) -> str:
+    def generate(self, prompt: str, temperature: float = 0.2, max_tokens: int = 128) -> str:
         return self.fixed_response
 
 
 # ---------------- OpenAI client ---------------- #
-
 class OpenAIClient:
-    """
-    Client wrapper around OpenAI's API.
-    Requires `openai` package and API key set in env var OPENAI_API_KEY.
-    """
+    """Client wrapper around OpenAI's API."""
 
     def __init__(self, model: str = "gpt-4o-mini", api_key: Optional[str] = None):
         try:
@@ -61,18 +50,12 @@ class OpenAIClient:
 
         self.openai = openai
         self.model = model
-        if api_key:
-            self.openai.api_key = api_key  # else relies on env var
+        self.api_key = api_key or os.getenv("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError("OpenAI API key not found. Set OPENAI_API_KEY in .env or env vars.")
+        self.openai.api_key = self.api_key
 
-    def generate(
-        self,
-        prompt: str,
-        temperature: float = 0.2,
-        max_tokens: int = 128,
-    ) -> str:
-        """
-        Send prompt to OpenAI ChatCompletion endpoint.
-        """
+    def generate(self, prompt: str, temperature: float = 0.2, max_tokens: int = 128) -> str:
         response = self.openai.ChatCompletion.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
@@ -80,34 +63,29 @@ class OpenAIClient:
             max_tokens=max_tokens,
         )
         return response["choices"][0]["message"]["content"].strip()
-    
+
+
 # ---------------- Hugging Face client ---------------- #
-
 class HFClient:
-    """
-    Hugging Face client using transformers pipeline.
-    Supports causal language models (text-generation).
-    """
+    """Hugging Face client for text-generation (supports LLaMA)."""
 
-    def __init__(self, model_name: str = "gpt2", device: int = -1):
+    def __init__(self, model_name: str = "gpt2", device: int = 0):
         try:
             from transformers import pipeline
         except ImportError:
             raise ImportError("You must `pip install transformers` to use HFClient.")
 
-        # Create text-generation pipeline
+        hf_token = os.getenv("HF_API_KEY")  # Optional, for private models
+        print(hf_token)
         self.generator = pipeline(
             "text-generation",
             model=model_name,
             device=device,  # -1 = CPU, 0 = first GPU
+            token=hf_token
         )
 
-    def generate(
-        self,
-        prompt: str,
-        temperature: float = 0.2,
-        max_tokens: int = 128,
-    ) -> str:
+    def generate(self, prompt: str, temperature: float = 0.2, max_tokens: int = 128) -> str:
+        print(prompt)
         outputs = self.generator(
             prompt,
             max_length=len(prompt.split()) + max_tokens,
@@ -118,9 +96,42 @@ class HFClient:
         return outputs[0]["generated_text"][len(prompt):].strip()
 
 
+# ---------------- Factory ---------------- #
+def get_llm_client(config: dict) -> LLMClient:
+    backend = config["llm"]["backend"]
+    model = config["llm"].get("model", None)
+
+    if backend == "openai":
+        return OpenAIClient(model=model)
+    elif backend == "hf":
+        return HFClient(model_name=model)
+    elif backend == "fake":
+        return FakeClient()
+    else:
+        raise ValueError(f"Unknown LLM backend: {backend}")
 
 
+# ---------------- Test ---------------- #
 if __name__ == "__main__":
-    # Simple test of the FakeClient
-    client = FakeClient(fixed_response="Test response")
-    print(client.generate("Hello, world!"))  # Should print "Test response
+    import yaml
+    from src.util.config import load_config
+    import sys
+    sys.path.append("/home/abdullahm/jaleel/Review_analysis")
+    cfg = load_config()
+    print(cfg["llm"]["model"])
+
+    client = get_llm_client(cfg)
+    
+    prompt = """
+You are a helpful AI assistant named LLaMA 3.1 8B-Instruct. Introduce yourself in a professional yet friendly way. Include the following details:
+
+1. Your name and version.
+2. Your purpose and capabilities.
+3. The types of tasks you can help with.
+4. How you approach problem-solving or reasoning.
+5. A short friendly note to the user.
+
+Format your response clearly using numbered points or bullet points.
+
+"""
+    print(client.generate(prompt, temperature=0.5, max_tokens=50))
