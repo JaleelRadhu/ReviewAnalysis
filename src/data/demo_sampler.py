@@ -39,8 +39,8 @@ class DemoSampler:
             return random.sample(matching_examples, min(k, len(matching_examples)))
 
         # 3. If no real examples, generate synthetic demos if synth_func is provided
-        if self.synth_func:
-            return self.synth_func(current_label, candidate_set, k)
+        # if self.synth_func:
+        #     return self.synth_func(current_label, candidate_set, k)
 
         # 4. Fallback: zero-shot
         return []
