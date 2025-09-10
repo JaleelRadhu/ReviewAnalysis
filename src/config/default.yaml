@@ -6,8 +6,13 @@ llm:
   backend: hf
   model: meta-llama/Llama-3.1-8B-Instruct
   temperature: 0.2
+  device: 1  # GPU device ID for HuggingFace backend
 paths:
   data_dir: /home/abdullahm/jaleel/Review_analysis/data
   category_tree: /home/abdullahm/jaleel/Review_analysis/data/processed/2new_category_tree.json
   train_json: /home/abdullahm/jaleel/Review_analysis/data/processed/train_null_appended.json
   test_json: /home/abdullahm/jaleel/Review_analysis/data/processed/test_null_appended.json
+  prompt_templates_dir: /home/abdullahm/jaleel/Review_analysis/src/config/prompt_templates/
+predictor:
+  max_depth: 10
+  k_demos: 0

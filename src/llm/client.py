@@ -88,7 +88,8 @@ class HFClient:
         print(prompt)
         outputs = self.generator(
             prompt,
-            max_length=len(prompt.split()) + max_tokens,
+            max_new_tokens=max_tokens,
+            # max_length=len(prompt.split()) + max_tokens,
             temperature=temperature,
             num_return_sequences=1,
             do_sample=True if temperature > 0 else False,
@@ -100,11 +101,12 @@ class HFClient:
 def get_llm_client(config: dict) -> LLMClient:
     backend = config["llm"]["backend"]
     model = config["llm"].get("model", None)
+    device = config["llm"].get("device", 0) # For HFClient
 
     if backend == "openai":
         return OpenAIClient(model=model)
     elif backend == "hf":
-        return HFClient(model_name=model)
+        return HFClient(model_name=model, device=device)
     elif backend == "fake":
         return FakeClient()
     else:
@@ -134,4 +136,4 @@ You are a helpful AI assistant named LLaMA 3.1 8B-Instruct. Introduce yourself i
 Format your response clearly using numbered points or bullet points.
 
 """
-    print(client.generate(prompt, temperature=0.5, max_tokens=50))
+    print(client.generate(prompt, temperature=0.5, max_tokens=100))
